@@ -1,6 +1,6 @@
 (function(global){
     var map = {
-        app: 'app',
+        app: 'dist/app',
         '@angular/core': 'npm@angular/core/bundles/core.umd.min.js',
         '@angular/common': 'npm@angular/common/bundles/common.umd.min.js',
         '@angular/compiler': 'npm@angular/compiler/bundles/compiler.umd.min.js',
