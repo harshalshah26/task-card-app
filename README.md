@@ -1,2 +1,3 @@
-# angular2-skeleton
-This is a skeleton project for angular2 and typescript application. 
+# task-card-app
+This is angular2 demo application app for beginner. 
+
