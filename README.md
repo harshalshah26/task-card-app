@@ -1,5 +1,5 @@
 # task-card-app
-This is angular2 demo application app for learning gulp and build stuff.
+This is angular2 demo application for learning gulp and build stuff.
 
 # Objective
 1) Learn type script configuration.
