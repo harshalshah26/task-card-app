@@ -8,6 +8,11 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "outDir": "build/app"
-    }
+        "rootDir": "src",
+        "outDir": "build/"
+    },
+    "exclude": [
+        "temp/",
+        "node_modules/"
+    ]
 }

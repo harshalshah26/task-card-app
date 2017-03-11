@@ -4,9 +4,9 @@
   "description": "Angular2 Project",
   "author": "Harshal Shah<hs26593@gmail.com>",
   "scripts": {
-    "start" : "concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "concurrently \"tsc -w\" \"lite-server\" ",
     "build": "gulp && tsc",
-    "dev" : "\"npm run build && npm start\" ",
+    "dev": "\"npm run build && npm start\" ",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w"
@@ -39,6 +39,7 @@
     "@types/node": "6.0.46",
     "concurrently": "3.1.0",
     "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
     "lite-server": "2.2.2",
     "typescript": "2.0.6"
   }
