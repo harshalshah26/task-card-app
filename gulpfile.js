@@ -15,11 +15,11 @@ gulp.task('html', function(){
     .pipe(gulp.dest(buildRoot))
 });
 
-gulp.task('css', function(){
-    console.log("CSS TASK RUNNING....");
-    return gulp.src(projectRoot +'*.css')
-    .pipe(gulp.dest(buildRoot))
-});
+// gulp.task('css', function(){
+//     console.log("CSS TASK RUNNING....");
+//     return gulp.src(projectRoot +'*.css')
+//     .pipe(gulp.dest(buildRoot))
+// });
 
 // gulp.task("sass", function(){
 //     console.log("css TASK RUNNING....");
