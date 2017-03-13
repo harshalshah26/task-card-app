@@ -1,40 +1,43 @@
 var gulp = require("gulp");//http://gulpjs.com/
 var	sass = require("gulp-sass");//https://www.npmjs.org/package/gulp-sass
+var del = require("del");
+var runSequence = require('run-sequence');
 
-const projectRoot = 'src/**/';
-const buildRoot = 'build/';
+var sourceRoot = 'src/';
+var buildRoot = 'build/';
 
-gulp.task('default', ['html', 'scss'], function() {
-  // place code for your default task here
-  console.log("DEFAULT GULP TASK RUNNING....");
+var paths = {
+  sourceRoot: sourceRoot ,
+  buildRoot: buildRoot,
+  templates: [sourceRoot+'**/*.html'],
+  styles: [sourceRoot+'/**/*.scss']
+};
+
+gulp.task('build', function(){
+  runSequence('clean-build', ['build-templates', 'build-styles']);
 });
 
-gulp.task('html', function(){
-    console.log("HTML TASK RUNNING....");
-    return gulp.src(projectRoot +'*.html')
-    .pipe(gulp.dest(buildRoot))
+gulp.task('clean-build', function() {
+  return del(['./build']);
 });
 
-// gulp.task('css', function(){
-//     console.log("CSS TASK RUNNING....");
-//     return gulp.src(projectRoot +'*.css')
-//     .pipe(gulp.dest(buildRoot))
-// });
+gulp.task('build-templates', function(){
+    return gulp.src(paths.templates)
+    .pipe(gulp.dest(paths.buildRoot))
+});
 
-// gulp.task("sass", function(){
-//     console.log("css TASK RUNNING....");
-//     return gulp.src(projectRoot +'**/*.scss')
-// 		.pipe(sass({ style: 'expanded' }))
-// 		.pipe(autoprefixer("last 3 version","safari 5", "ie 8", "ie 9"))
-// 		.pipe(gulp.dest(buildRoot))
-// 		.pipe(rename({suffix: '.min'}))
-// 		.pipe(minifycss())
-// 		.pipe(gulp.dest('target/css'));
-// });
-
-gulp.task("scss", function(){
-    console.log("SCSS TASK RUNNING....");
-    return gulp.src(projectRoot +'*.scss')
+gulp.task("build-styles", function(){
+    return gulp.src(paths.styles)
 		.pipe(sass({ style: 'expanded' }))
-		.pipe(gulp.dest(buildRoot));
+		.pipe(gulp.dest(paths.buildRoot));
+});
+
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+  gulp.watch(paths.templates, ['build-templates']);
+  gulp.watch(paths.styles, ['build-styles']);
+});
+
+gulp.task('default', function(){
+  console.log("DEFAULT TASK RUNNING");
 });
